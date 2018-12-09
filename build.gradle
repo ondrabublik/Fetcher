@@ -1,0 +1,14 @@
+
+def mainClassName = 'fetcher.FetcherServer'
+
+dependencies {
+    implementation fileTree(dir: 'lib', include: ['*.jar'])
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': mainClassName
+        )
+    }
+}
