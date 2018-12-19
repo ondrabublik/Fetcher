@@ -5,10 +5,20 @@ dependencies {
     implementation fileTree(dir: 'lib', include: ['*.jar'])
 }
 
+def classes = ""
+new File("${projectDir}/lib").eachFileRecurse {file->
+    if (file.isFile() && file.name.endsWith("jar")) {
+        def File projectDir = new File("${projectDir}")
+        def relPath = projectDir.toPath().relativize(file.getParentFile().toPath())
+        classes += relPath.toString().toLowerCase() + "/" + file.name + " "
+    }
+}
+
 jar {
     manifest {
         attributes(
-            'Main-Class': mainClassName
+            'Main-Class': mainClassName,
+            'Class-Path': classes
         )
     }
 }
