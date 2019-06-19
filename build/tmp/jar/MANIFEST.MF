@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: lib/log4j-1.2.17.jar lib/slf4j-api-1.7.21.jar lib/slf4j-lo
- g4j12-1.7.21.jar 
-Main-Class: fetcher.FetcherServer
-
